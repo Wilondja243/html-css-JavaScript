@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Video Call with PeerJS</title>
+</head>
+<body>
+    <h1>Video Call</h1>
+    <video id="localVideo" autoplay playsinline></video>
+    <video id="remoteVideo" autoplay playsinline></video>
+
+    <input type="text" id="roomId" placeholder="Enter room ID">
+    <button id="joinButton">Join Call</button>
+
+    <script src="https://cdn.jsdelivr.net/npm/peerjs@1.3.2/dist/peerjs.min.js"></script>
+    <script>
+      const localVideo = document.getElementById('localVideo');
+      const remoteVideo = document.getElementById('remoteVideo');
+      const joinButton = document.getElementById('joinButton');
+      const roomIdInput = document.getElementById('roomId');
+      
+      let localStream;
+      let peer;
+      
+      joinButton.onclick = async () => {
+        const roomId = roomIdInput.value;
+        if (!roomId) {
+          alert('Please enter a room ID.');
+          return;
+        }
+      
+        // Get local stream
+        localStream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
+        localVideo.srcObject = localStream;
+      
+        // Initialize PeerJS
+        peer = new Peer();
+      
+        // Listen for call event
+        peer.on('call', call => {
+          call.answer(localStream); // Answer the call with our local stream
+          call.on('stream', stream => {
+            remoteVideo.srcObject = stream; // Show stream in remote video element
+          });
+        });
+      
+        // Connect to the room
+        const conn = peer.connect(roomId);
+        conn.on('open', () => {
+          const call = peer.call(roomId, localStream);
+          call.on('stream', stream => {
+            remoteVideo.srcObject = stream; // Show stream in remote video element
+          });
+        });
+      };
+    </script>
+</body>
+</html>
