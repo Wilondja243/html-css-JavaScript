@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Utilisateur</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Header -->
+        <header class="dashboard-header">
+            <h1>Tableau de Bord</h1>
+            <div class="notification-icon">🔔 <span class="notification-count">2</span></div>
+        </header>
+
+        <!-- Solde et Statistiques -->
+        <section class="balance-stats">
+            <div class="balance-section">
+                <h2>Solde Actuel</h2>
+                <div class="balance-amount">$5,430.00</div>
+            </div>
+            <div class="stats-section">
+                <div class="stat-card">
+                    <h3>Revenus ce mois</h3>
+                    <p>$2,500.00</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Dépenses ce mois</h3>
+                    <p>$1,200.00</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Actions Rapides -->
+        <section class="actions-section">
+            <h2>Actions Rapides</h2>
+            <div class="action-buttons">
+                <button class="btn transfer">💸 Transferer</button>
+                <button class="btn deposit">📥 Deposer</button>
+                <button class="btn withdraw">📤 Retirer</button>
+                <button class="btn invest">📈 Investir</button>
+            </div>
+        </section>
+
+        <!-- Graphique des Dépenses -->
+        <section class="chart-section">
+            <h2>Dépenses Mensuelles</h2>
+            <div class="chart-placeholder">
+                <!-- Intégrez ici un graphique (ex: Chart.js) -->
+                <p>Graphique des dépenses ici...</p>
+            </div>
+        </section>
+
+        <!-- Dernières Transactions -->
+        <section class="transactions-section">
+            <h2>Dernières Transactions</h2>
+            <div class="search-bar">
+                <input type="text" placeholder="Rechercher une transaction...">
+            </div>
+            <table class="transactions-table">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Description</th>
+                        <th>Montant</th>
+                        <th>Statut</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>2023-10-01</td>
+                        <td>Transfert à John Doe</td>
+                        <td class="debit">-$200.00</td>
+                        <td class="status completed">Complété</td>
+                    </tr>
+                    <tr>
+                        <td>2023-09-28</td>
+                        <td>Dépôt de salaire</td>
+                        <td class="credit">+$2,500.00</td>
+                        <td class="status completed">Complété</td>
+                    </tr>
+                    <!-- Ajouter plus de lignes selon les besoins -->
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Notifications -->
+        <section class="notifications-section">
+            <h2>Notifications</h2>
+            <ul class="notifications-list">
+                <li>✅ Transfert de $200 à John Doe complété.</li>
+                <li>⚠️ Dépôt de $2,500 en attente de confirmation.</li>
+            </ul>
+        </section>
+    </div>
+</body>
+</html>

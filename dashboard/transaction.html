@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transaction - App Fintech</title>
+    <link rel="stylesheet" href="transaction.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="transaction-app">
+        <!-- En-tête -->
+        <header class="app-header">
+            <h1>Effectuer une Transaction</h1>
+            <p>Choisissez une méthode de transaction pour commencer.</p>
+        </header>
+
+        <!-- Contenu Principal -->
+        <div class="main-content">
+            <!-- Section Méthodes de Transaction (Gauche) -->
+            <section class="methods-section">
+                <div class="method-cards">
+                    <!-- Mobile Money -->
+                    <div class="method-card" data-method="mobile-money">
+                        <div class="icon">📱</div>
+                        <h3>Mobile Money</h3>
+                        <p>Transférez de l'argent via votre portefeuille mobile.</p>
+                    </div>
+                    <!-- Virement Bancaire -->
+                    <div class="method-card" data-method="bank-transfer">
+                        <div class="icon">🏦</div>
+                        <h3>Virement Bancaire</h3>
+                        <p>Effectuez un virement vers un compte bancaire.</p>
+                    </div>
+                    <!-- Carte Bancaire -->
+                    <div class="method-card" data-method="card">
+                        <div class="icon">💳</div>
+                        <h3>Carte Bancaire</h3>
+                        <p>Payez avec votre carte de crédit ou débit.</p>
+                    </div>
+                    <!-- Crypto-monnaie -->
+                    <div class="method-card" data-method="crypto">
+                        <div class="icon">₿</div>
+                        <h3>Crypto-monnaie</h3>
+                        <p>Effectuez des transactions en crypto-monnaie.</p>
+                    </div>
+                </div>
+
+                <!-- Liste des Sous-Méthodes (Mobile Money) -->
+                <div id="subMethods" class="sub-methods hidden">
+                    <h3>Choisissez une option :</h3>
+                    <div class="sub-method" data-sub-method="airtel-money">Airtel Money</div>
+                    <div class="sub-method" data-sub-method="orange-money">Orange Money</div>
+                    <div class="sub-method" data-sub-method="lumitel">Lumitel</div>
+                </div>
+            </section>
+
+            <!-- Section Publicités (Droite) -->
+            <aside class="ads-section">
+                <h2>Offres Spéciales</h2>
+                <div class="ads-cards">
+                    <div class="ad-card">
+                        <div class="ad-icon">🎉</div>
+                        <p>Profitez de frais réduits sur les transferts ce mois-ci !</p>
+                    </div>
+                    <div class="ad-card">
+                        <div class="ad-icon">💰</div>
+                        <p>Gagnez des récompenses avec chaque transaction.</p>
+                    </div>
+                </div>
+            </aside>
+        </div>
+
+        <!-- Modal pour le Formulaire de Transaction -->
+        <div id="transactionModal" class="modal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <h2>Formulaire de Transaction</h2>
+                <form id="transactionForm">
+                    <div class="input-group">
+                        <label for="recipientNumber">Numéro du Bénéficiaire</label>
+                        <input type="text" id="recipientNumber" placeholder="Entrez le numéro" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="amount">Montant</label>
+                        <input type="number" id="amount" placeholder="Entrez le montant" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="pinCode">Code PIN</label>
+                        <input type="password" id="pinCode" placeholder="Entrez votre code PIN" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="motif">Motif de la Transaction</label>
+                        <textarea id="motif" placeholder="Entrez le motif (optionnel)"></textarea>
+                    </div>
+                    <button type="submit" class="btn submit-btn">Confirmer</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="transaction.js"></script>
+</body>
+</html>

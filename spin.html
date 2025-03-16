@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/spin.js@2.0.0/spin.min.js"></script>
+    <title>Document</title>
+    <style>
+        button{
+            padding: 10px 20px;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <button>soumettre</button>
+    <div id="container"></div>
+
+    <script>
+        const btn = document.querySelector("button")
+        btn.addEventListener("click", function(){
+            var options ={
+                lines:10,
+                length:0,
+                width:7,
+                corners:5,
+                color:"red"
+            }
+
+            var spinner = new Spinner(options).spin()
+            btn.textContent = ""
+            btn.appendChild(spinner.el)
+
+            fetch("https://jsonplaceholder.typicode.com/todos/1") // Remplace par ton API
+            .then(response => response.json())  // Traitement de la réponse
+            .then(data => {
+                console.log(data);  
+                for (let d in data) {
+                    if (data.hasOwnProperty(d)) { 
+                        const item = document.createElement("div");
+                        
+                        item.innerHTML = `<strong>${d}:</strong> ${data[d]}`;
+
+                        document.getElementById("container").appendChild(item);
+                    }
+                }
+ 
+                spinner.el.remove();  // Supprimer le spinner
+                btn.textContent = "Soumettre";
+            })
+            .catch(error => {
+                console.error("Erreur:", error);
+                spinner.el.remove();
+                btn.textContent = "Erreur";
+            });
+        })
+    </script>
+</body>
+</html>

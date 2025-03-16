@@ -1,0 +1,249 @@
+/* Reset et Polices */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f5f6fa;
+    color: #2f3640;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.transaction-app {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 1200px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.app-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.app-header h1 {
+    font-size: 2.5rem;
+    color: #0056b3;
+    margin-bottom: 10px;
+}
+
+.app-header p {
+    font-size: 1.1rem;
+    color: #7f8c8d;
+}
+
+.main-content {
+    display: flex;
+    gap: 20px;
+}
+
+/* Section Méthodes de Transaction (Gauche) */
+.methods-section {
+    flex: 2;
+    max-height: 70vh;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+.method-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.method-card {
+    background: #f8f9fa;
+    padding: 25px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.method-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.method-card .icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.method-card h3 {
+    font-size: 1.5rem;
+    color: #0056b3;
+    margin-bottom: 10px;
+}
+
+.method-card p {
+    font-size: 1rem;
+    color: #7f8c8d;
+}
+
+/* Liste des Sous-Méthodes */
+.sub-methods {
+    margin-top: 20px;
+    padding: 20px;
+    background: #e3f2fd;
+    border-radius: 12px;
+}
+
+.sub-methods.hidden {
+    display: none;
+}
+
+.sub-method {
+    padding: 15px;
+    background: white;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.sub-method:hover {
+    background-color: #f8f9fa;
+}
+
+/* Section Publicités (Droite) */
+.ads-section {
+    flex: 1;
+    max-height: 70vh;
+    position: sticky;
+    top: 20px;
+}
+
+.ads-section h2 {
+    font-size: 1.8rem;
+    color: #0056b3;
+    margin-bottom: 20px;
+}
+
+.ads-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.ad-card {
+    background: #e3f2fd;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.ad-card .ad-icon {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.ad-card p {
+    font-size: 1rem;
+    color: #2f3640;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: white;
+    padding: 30px;
+    border-radius: 16px;
+    width: 100%;
+    max-width: 400px;
+    position: relative;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #7f8c8d;
+}
+
+.modal h2 {
+    font-size: 1.8rem;
+    color: #0056b3;
+    margin-bottom: 20px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    font-size: 1rem;
+    color: #2f3640;
+    margin-bottom: 5px;
+}
+
+.input-group input, .input-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.input-group input:focus, .input-group textarea:focus {
+    border-color: #0056b3;
+    outline: none;
+}
+
+.submit-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+    background-color: #45a049;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .main-content {
+        flex-direction: column;
+    }
+
+    .methods-section, .ads-section {
+        max-height: none;
+    }
+
+    .ads-section {
+        position: static;
+    }
+}
