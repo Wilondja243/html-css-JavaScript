@@ -1,0 +1,104 @@
+*{
+    margin: 0;
+    padding: 0;
+    outline: none;
+    box-sizing: border-box;
+}
+
+body{
+    background: #161126;
+}
+
+a{
+    color: #b80044;
+    text-decoration: none;
+}
+
+
+form h1{
+    margin: 20px 0;
+}
+
+form{
+    background: #2c234452;
+    width: 28%;
+    padding: 20px;
+    margin:40px auto 0 auto;
+    color: #ffffff;
+}
+form:hover{
+    box-shadow: 0 0 30px #b80044de;
+    cursor:default;
+}
+
+form .form-inputs,
+form .form-inputs input{
+    width: 100%;
+}
+form .type-text {
+    display: flex;
+    gap: 15px;
+}
+
+form input{
+    padding: 13px 8px;
+    margin-top: 20px;
+    background: #2c234452;
+    color: #eeeeeec6;
+    border: 1px solid #b80044a2;
+    border-radius: 35px;
+}
+form input::placeholder{
+    color: #eeeeeec6;
+}
+
+form .checked{
+    display: flex;
+    margin-top: 25px;
+}
+.checked input[type="checkbox"]{
+    margin: 0;
+    padding:0;
+    width: 15px;
+    height: 15px;
+    border: 1px solid #eeeeeec6;
+    border-radius: 5px;
+    appearance: none;
+    cursor: pointer;
+}
+.checked input[type="checkbox"]:checked{
+    background: #d90145;
+}
+.checked input[type="checkbox"]:checked::after{
+    content: "ok";
+    color: #ffffff;
+    font-size: 10px;
+    text-align: center;
+}
+
+form .checked .terms{
+    margin-left: 8px;
+}
+
+
+form button{
+    width: 100%;
+    padding: 10px 5px;
+    margin-top: 30px;
+    font-weight: bold;
+    font-size: 20px;
+    color: #ffffff;
+    background: #b80044ce;
+    border-radius: 35px;
+    border: none;
+    cursor:pointer;
+}
+form button:hover{
+    background: #d90145;
+}
+
+form .account{
+    text-align: center;
+    margin-top: 70px;
+    font-size: 18px;
+}
