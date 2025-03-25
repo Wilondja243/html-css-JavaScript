@@ -15,6 +15,11 @@ a{
 }
 
 
+/*#################
+  FORM STYLE
+##################*/
+
+
 form h1{
     margin: 20px 0;
 }
@@ -102,3 +107,7 @@ form .account{
     margin-top: 70px;
     font-size: 18px;
 }
+
+/*#################
+  END FORM STYLE
+##################*/
