@@ -5,12 +5,22 @@
     box-sizing: border-box;
 }
 
+/* CSS VARIABLES */
+
+:root{
+    --WHITE-COLOR:#FFFFFF;
+    --GRAY-COLOR:#eeeeeec6;
+    --DARK-BG-COLOR:#161126;
+    --DARK-FORM-COLOR:#2c234452;
+    --DANGER-TEXT-COLOR:#b80044;
+}
+
 body{
-    background: #161126;
+    background: var(--DARK-BG-COLOR);
 }
 
 a{
-    color: #b80044;
+    color: var(--DANGER-TEXT-COLOR);
     text-decoration: none;
 }
 
@@ -22,14 +32,15 @@ a{
 
 form h1{
     margin: 20px 0;
+    text-align: center;
 }
 
 form{
-    background: #2c234452;
-    width: 28%;
+    background: var(--DARK-FORM-COLOR);
+    width: 390PX;
     padding: 20px;
     margin:40px auto 0 auto;
-    color: #ffffff;
+    color: var(--WHITE-COLOR);
 }
 form:hover{
     box-shadow: 0 0 30px #b80044de;
@@ -49,12 +60,12 @@ form input{
     padding: 13px 8px;
     margin-top: 20px;
     background: #2c234452;
-    color: #eeeeeec6;
+    color: var(--GRAY-COLOR);
     border: 1px solid #b80044a2;
     border-radius: 35px;
 }
 form input::placeholder{
-    color: #eeeeeec6;
+    color: var(--GRAY-COLOR);
 }
 
 form .checked{
@@ -66,7 +77,7 @@ form .checked{
     padding:0;
     width: 15px;
     height: 15px;
-    border: 1px solid #eeeeeec6;
+    border: 1px solid var(--GRAY-COLOR);
     border-radius: 5px;
     appearance: none;
     cursor: pointer;
@@ -76,7 +87,7 @@ form .checked{
 }
 .checked input[type="checkbox"]:checked::after{
     content: "ok";
-    color: #ffffff;
+    color: var(--WHITE-COLOR);
     font-size: 10px;
     text-align: center;
 }
@@ -92,14 +103,14 @@ form button{
     margin-top: 30px;
     font-weight: bold;
     font-size: 20px;
-    color: #ffffff;
+    color: var(--WHITE-COLOR);
     background: #b80044ce;
     border-radius: 35px;
     border: none;
     cursor:pointer;
 }
 form button:hover{
-    background: #d90145;
+    background: var(--DANGER-TEXT-COLOR);
 }
 
 form .account{
