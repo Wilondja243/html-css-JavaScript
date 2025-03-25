@@ -42,10 +42,6 @@ form{
     margin:40px auto 0 auto;
     color: var(--WHITE-COLOR);
 }
-form:hover{
-    box-shadow: 0 0 30px #b80044de;
-    cursor:default;
-}
 
 form .form-inputs,
 form .form-inputs input{
