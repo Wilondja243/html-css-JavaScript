@@ -5,7 +5,7 @@ Welcome to this learning project for HTML, CSS, and JavaScript! This repository 
 ## Projext Content
 
 - **HTML**:Basic strucrure of a web page
-- **CSS**: sTYLING AND LAYOUT
+- **CSS**: Styling and Layout
 - **JavaScript**: Adding interactivity
 
 ## Goals
@@ -15,3 +15,11 @@ Welcome to this learning project for HTML, CSS, and JavaScript! This repository 
 - Use CSS to enhance the appearance of pages
 
 - Implementt interactive features with JavaScript
+
+## Prerequisites
+
+No prerequisites required, just a text editor (VS Code, Sublime Text, etc.) and a web browser.
+
+## Contributions
+
+Contributions are welcome! You cn propose improvements by ** forking ** the project and submitting a pull resquest.
