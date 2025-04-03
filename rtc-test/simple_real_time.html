@@ -39,8 +39,10 @@
         peer = new Peer();
       
         peer.on('open', id => {
+          
           // Connect to the signaling server (use WebSocket, Firebase, etc.)
           // For simplicity, we assume there's a way to get a list of peers in the room
+
           fetch(`https://your-server.com/peers-in-room?roomId=${roomId}`)
             .then(response => response.json())
             .then(peers => {
@@ -56,7 +58,7 @@
       
         // Listen for incoming calls
         peer.on('call', call => {
-          call.answer(localStream); // Answer the call with our local stream
+          call.answer(localStream);
           call.on('stream', addRemoteStream);
           connections.push(call);
         });
