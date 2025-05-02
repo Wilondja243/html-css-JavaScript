@@ -23,3 +23,7 @@ No prerequisites required, just a text editor (VS Code, Sublime Text, etc.) and 
 ## Contributions
 
 Contributions are welcome! You cn propose improvements by **forking** the project and submitting a **pull resquest**.
+
+## Licence
+
+This project is licensed under the MIT
