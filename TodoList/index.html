@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./asserts/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <title>TodoList</title>
+</head>
+<body>
+    <header>
+        <nav class="nav-bar">
+            <h1 class="nav-bar__t">TodoList</h1>
+            <button class="nav-bar__btn btn" id="add">Add card</button>
+        </nav>
+    </header>
+
+    <!-- Section -->
+    <section>
+        <div class="container">
+            <div class="content">
+
+                <!-- item -->
+                <div class="content__item">
+                    <div class="item__image">
+                        <img src="./asserts/images/blue.webp" alt="Card Image">
+                        <p>Lorem ipsum dolor site amet</p>
+                    </div>
+                    <div class="item__infos">
+                        <h1>Lorem ipsum dolor sit amet consectetur</h1>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+                            Quia aspernatur beatae at tempora. Consequuntur, quo assumenda.
+                        </p>
+                        <div class="item__infos__btns">
+                            <button class="btn">Details</button>
+                            <div class="item__infos__icons">
+                                <i class="bi bi-pen"></i>
+                                <i class="bi bi-trash"></i>
+                                <div class="alert-content"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End item -->
+
+            </div>
+        </div>
+
+        <!-- Modal -->
+
+        <div class="modal-container hide" id="modal-container">
+            <div class="modal" id="modal">
+                <div class="modal__header">
+                    <h1>Add card</h1>
+                    <i class="bi bi-x"></i>
+                </div>
+                <div class="errors"></div>
+                <form action="" class="modal__form">
+                    <div class="modal__form__file">
+                        <label for="imageInput">
+                            <i class="bi bi-card-image"></i>
+                            <input type="file" id="imageInput" accept="image/*" style="display: none;">
+                            <img src="" id="image-preview" alt="">
+                        </label>
+                    </div>
+                    <div class="modal__form__inputs">
+                        <div>
+                            <input type="text" placeholder="">
+                        </div>
+                        <div>
+                            <input type="text" id="title" placeholder="title">
+                        </div>
+                        <div>
+                            <textarea rows="10" cols="50" id="description" placeholder="description"></textarea>
+                        </div>
+                    </div>
+                    <button type="submit" class="modal__form__btn btn" id="modal-btn">Add card</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Alert modal -->
+
+        <div class="alert-content">
+            <div class="alert">
+                <p class="alert__p">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                    Itaque iusto alias delectus facere repellat. 
+                    Maiores, voluptates sequi molestias repellendus optio nihil 
+                    aspernatur ab maxime praesentium similique sunt iusto at reprehenderit.
+                </p>
+                <div class="alert__btns">
+                    <button class="alert__btn__cancel btn">Cancel</button>
+                    <button class="alert__btn__remove btn">Remove</button>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+</body>
+</html>
