@@ -94,9 +94,11 @@ header{
 .content__item{
     border-radius: 3px;
     background: var(--bs-white);
+    
 }
 .item__image{
     position: relative;
+    height: 100px;
 }
 .item__image img{
     width: 100%;

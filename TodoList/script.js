@@ -57,13 +57,47 @@ document.getElementById("imageInput").addEventListener('change', loadFile);
 modalBtn.addEventListener('click', (e)=>{
     e.preventDefault();
 
-    const imgInput = document.getElementById('imageInput');
-    const imgFile = imgInput.files[0];
-    console.log(imgFile)
+    const imgInput = document.getElementById('imageInput').files[0];
+    const imgFile = URL.createObjectURL(imgInput);
+
     const title = document.getElementById("title").value.split();
     const description = document.getElementById("description").value.trim();
 
     if(formValid(imgFile, title, description)){
-        
+        addItem(imgFile, title, description);
+        document.querySelector('.modal__form').reset();
+
+        if(modalContainer.classList.contains("show-modal")){
+            modalContainer.classList.remove('show-modal');
+            modalContainer.classList.add('hide');
+        }  
     }
 })
+
+function addItem(imgFile, title, description){
+
+    const content = document.querySelector('.content')
+
+    content.innerHTML +=
+        `
+            <div class="content__item">
+                <div class="item__image">
+                    <img src="${imgFile}" alt="Card Image">
+                    <p>Lorem ipsum dolor site amet</p>
+                </div>
+                <div class="item__infos">
+                    <h1>${title}</h1>
+                    <p>${description}</p>
+                    <div class="item__infos__btns">
+                        <button class="btn">Details</button>
+                        <div class="item__infos__icons">
+                            <i class="bi bi-pen"></i>
+                            <i class="bi bi-trash"></i>
+                            <div class="alert-content"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        `
+}
