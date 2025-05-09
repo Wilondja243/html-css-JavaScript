@@ -5,12 +5,14 @@ const modalBtn = document.getElementById("modal-btn");
 
 function showAddModal(){
     modalContainer.classList.remove("hide");
+    document.body.classList.add("hideScrollBar");
     modalContainer.classList.add('show-modal');
 }
 
 function hideAddModal(){
     modalContainer.classList.remove('show-modal');
-    modalContainer.classList.add('hide')
+    document.body.classList.remove("hideScrollBar");
+    modalContainer.classList.add('hide');
 }
 
 add.addEventListener('click', showAddModal);
@@ -92,7 +94,9 @@ modalBtn.addEventListener('click', (e)=>{
             document.querySelector('.modal__form').reset();
 
             if(modalContainer.classList.contains("show-modal")){
+                
                 modalContainer.classList.remove('show-modal');
+                document.body.classList.remove("hideScrollBar");
                 modalContainer.classList.add('hide');
             }  
             
@@ -130,6 +134,45 @@ function addItem(id, imgFile, title, description){
 
         `
 }
+
+
+// Script to update item
+
+function updatItem(){
+
+    let currentContentElement = null;
+
+    document.querySelector(".content").addEventListener('click', (e)=>{
+        if(e.target.classList.contains('bi-pen')){
+
+            currentContentElement = e.target.closest(".content__item");
+
+            if(modalContainer.classList.contains("hide")){
+
+                modalContainer.classList.remove("hide");
+                document.body.classList.add("hideScrollBar");
+                modalContainer.classList.add("show-modal");
+
+                document.getElementById("image-preview").src = currentContentElement.querySelector('.item__image img').src;
+                document.getElementById("title").value = currentContentElement.querySelector(".item__infos h1").textContent;
+                document.getElementById("description").value = currentContentElement.querySelector(".item__infos p").textContent;
+                
+            }
+        }
+    })
+
+    document.getElementById("modal-btn").addEventListener('click', ()=>{
+        if(currentContentElement){
+            currentContentElement.querySelector('.item__image img').src = document.getElementById("image-preview").src;
+            currentContentElement.querySelector(".item__infos h1").textContent = document.getElementById("title").value;
+            currentContentElement.querySelector(".item__infos p").textContent = document.getElementById("description").value;
+        }
+    })
+
+}
+
+updatItem()
+
 
 // Script to remove item
 

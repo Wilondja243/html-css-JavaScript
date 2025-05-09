@@ -49,6 +49,9 @@ h1{
 body{
     background: var(--bs-gray-100);
 }
+body.hideScrollBar{
+    overflow: hidden;
+}
 
 
 /* NAV BAR */
