@@ -37,6 +37,8 @@ function formValid(img, title, description){
     return true;
 }
 
+// Script to load file
+
 function loadFile(event){
     const file = event.target.files[0];
 
@@ -53,6 +55,8 @@ function loadFile(event){
 }
 
 document.getElementById("imageInput").addEventListener('change', loadFile);
+
+// Script to verify form and add item
 
 modalBtn.addEventListener('click', (e)=>{
     e.preventDefault();
@@ -98,6 +102,8 @@ modalBtn.addEventListener('click', (e)=>{
     reader.readAsDataURL(imgInput);
 })
 
+// Function to insert data in the content element
+
 function addItem(id, imgFile, title, description){
 
     const content = document.querySelector('.content');
@@ -107,7 +113,6 @@ function addItem(id, imgFile, title, description){
             <div class="content__item item" data-id="${id}">
                 <div class="item__image">
                     <img src="${imgFile}" alt="Card Image">
-                    <p>Lorem ipsum dolor site amet</p>
                 </div>
                 <div class="item__infos">
                     <h1>${title}</h1>
@@ -126,29 +131,28 @@ function addItem(id, imgFile, title, description){
         `
 }
 
-function removeItem(){
-    document.querySelector(".content").addEventListener("click", (e)=>{
-        console.log(e.target);
-        if(e.target.classList.contains("bi-trash")){
-            const item = e.target.closest(".item");
-            item.remove();
+// Script to remove item
 
-            let storageData = JSON.parse(localStorage.getItem("content")) || [];
-            const itemId = item.dataset.id;
+document.querySelector(".content").addEventListener("click", (e)=>{
 
-            const index = storageData.findIndex(item => item.id === itemId);
-            console.log(index)
+    if(e.target.classList.contains("bi-trash")){
+        const item = e.target.closest(".item");
+        item.remove();
 
-            if(index !== -1){
-                storageData.splice(index, 1);
-                localStorage.setItem("content", JSON.stringify(storageData));
-            }
-            
+        let storageData = JSON.parse(localStorage.getItem("content")) || [];
+        const itemId = Number(item.dataset.id);
+
+        const index = storageData.findIndex(item => item.id === itemId);
+
+        if(index !== -1){
+            storageData.splice(index, 1);
+            localStorage.setItem("content", JSON.stringify(storageData));
         }
-    })
-}
-removeItem()
+        
+    }
+})
 
+// Script to take all data in localStorage after reload page
 
 window.onload = ()=>{
     itemData = JSON.parse(localStorage.getItem("content"));
@@ -165,7 +169,6 @@ window.onload = ()=>{
                 <div class="content__item item" data-id="${item.id}">
                     <div class="item__image">
                         <img src="${item.imgFile}" alt="Item Image">
-                        <p>Lorem ipsum dolor site amet</p>
                     </div>
                     <div class="item__infos">
                         <h1>${item.title}</h1>

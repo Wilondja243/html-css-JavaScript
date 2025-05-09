@@ -29,6 +29,7 @@
 
 h1{
     color: var(--bs-black);
+    word-wrap: break-word;
 }
 .btn{
     text-wrap: nowrap;
@@ -87,18 +88,19 @@ header{
 
 .content{
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 15px;
-    justify-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px 10px;
+    justify-content: center;
+    
 }
 .content__item{
     border-radius: 3px;
     background: var(--bs-white);
-    
 }
+
 .item__image{
     position: relative;
-    
+    height: 200px;
 }
 .item__image img{
     width: 100%;
@@ -111,19 +113,18 @@ header{
 .item__image img:hover{
     transform: scale(1.05)
 }
-.item__image p{
-    position: absolute;
-    bottom: 1.2em;
-    left: 0.5em;
-    color: var(--bs-gray-300);
-}
 .item__infos{
     padding: 10px 7px;
+}
+.item__infos h1{
+    font-size: clamp(17px, 5vw, 20px);
 }
 .item__infos p{
     margin: 17px 0;
     line-height: 23px;
+    font-size: clamp(12px, 5vw, 15px);
     color: var(--bs-black-300);
+    word-wrap: break-word;
 }
 .item__infos__btns{
     display: flex;
