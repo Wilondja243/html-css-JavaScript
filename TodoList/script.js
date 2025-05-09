@@ -94,7 +94,7 @@ modalBtn.addEventListener('click', (e)=>{
             document.querySelector('.modal__form').reset();
 
             if(modalContainer.classList.contains("show-modal")){
-                
+
                 modalContainer.classList.remove('show-modal');
                 document.body.classList.remove("hideScrollBar");
                 modalContainer.classList.add('hide');
@@ -195,8 +195,57 @@ document.querySelector(".content").addEventListener("click", (e)=>{
     }
 })
 
-// Script to take all data in localStorage after reload page
 
+// Filers items
+
+function filterItem(){
+    const searchInput = document.getElementById("search-input");
+
+    searchInput.addEventListener("input", (e)=>{
+        let value = e.target.value;
+
+        let storageData = JSON.parse(localStorage.getItem("content")) || [];
+
+        let filterItems = storageData.filter(item =>{
+            return (
+                item.title.toLowerCase().includes(value) || 
+                item.description.toLowerCase().includes(value)
+            )
+        })
+        
+        const content = document.querySelector(".content");
+        content.innerHTML = "";
+
+        filterItems.forEach(item =>{
+            content.innerHTML +=
+                `
+                    <div class="content__item item" data-id="${item.id}">
+                        <div class="item__image">
+                            <img src="${item.imgFile}" alt="Card Image">
+                        </div>
+                        <div class="item__infos">
+                            <h1>${item.title}</h1>
+                            <p>${item.description}</p>
+                            <div class="item__infos__btns">
+                                <button class="btn">Details</button>
+                                <div class="item__infos__icons">
+                                    <i class="bi bi-pen"></i>
+                                    <i class="bi bi-trash"></i>
+                                    <div class="alert-content"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                `
+        })
+
+    })
+}
+
+filterItem()
+
+// Script to take all data in localStorage after reload page
 window.onload = ()=>{
     itemData = JSON.parse(localStorage.getItem("content"));
     if(!itemData){
