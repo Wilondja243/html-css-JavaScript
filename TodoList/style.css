@@ -87,7 +87,7 @@ header{
 
 .content{
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     gap: 15px;
     justify-items: center;
 }
@@ -98,7 +98,7 @@ header{
 }
 .item__image{
     position: relative;
-    height: 100px;
+    
 }
 .item__image img{
     width: 100%;
