@@ -58,37 +58,44 @@ modalBtn.addEventListener('click', (e)=>{
     e.preventDefault();
 
     const imgInput = document.getElementById('imageInput').files[0];
-    const imgFile = URL.createObjectURL(imgInput);
 
     const title = document.getElementById("title").value.trim();
     const description = document.getElementById("description").value.trim();
 
-    if(formValid(imgFile, title, description)){
-        const id = Date.now();
+    const reader = new FileReader();
+    reader.onload = (e)=>{
 
-        addItem(id, imgFile, title, description);
+        imgFile = e.target.result;
+    
+        if(formValid(imgFile, title, description)){
+            const id = Date.now();
 
-        let storageData = JSON.parse(localStorage.getItem("content"))
-        if(!storageData) {
-            storageData = []
+            addItem(id, imgFile, title, description);
+
+            let storageData = JSON.parse(localStorage.getItem("content"))
+            if(!storageData) {
+                storageData = []
+            }
+
+            let itemData = { id , imgFile, title, description }
+
+            storageData.push(itemData)
+
+            localStorage.setItem("content", JSON.stringify(storageData));
+
+            document.getElementById("imageInput").value = "";
+            document.getElementById("image-preview").src = "";
+            document.querySelector('.modal__form').reset();
+
+            if(modalContainer.classList.contains("show-modal")){
+                modalContainer.classList.remove('show-modal');
+                modalContainer.classList.add('hide');
+            }  
+            
         }
-
-        let itemData = { id , imgFile, title, description }
-
-        storageData.push(itemData)
-
-        localStorage.setItem("content", JSON.stringify(storageData));
-
-        document.getElementById("imageInput").value = "";
-        document.getElementById("image-preview").src = "";
-        document.querySelector('.modal__form').reset();
-
-        if(modalContainer.classList.contains("show-modal")){
-            modalContainer.classList.remove('show-modal');
-            modalContainer.classList.add('hide');
-        }  
-        
     }
+
+    reader.readAsDataURL(imgInput);
 })
 
 function addItem(id, imgFile, title, description){
@@ -129,7 +136,7 @@ function removeItem(){
             let storageData = JSON.parse(localStorage.getItem("content")) || [];
             const itemId = item.dataset.id;
 
-            const index = localStorage.findIndex(item => item.id === itemId);
+            const index = storageData.findIndex(item => item.id === itemId);
             console.log(index)
 
             if(index !== -1){
